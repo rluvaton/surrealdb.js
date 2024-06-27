@@ -63,12 +63,7 @@ export class Surreal {
 		);
 		this.emitter.subscribe(ConnectionStatus.Error, () => this.close());
 
-		if (engines) {
-			this.engines = {
-				...this.engines,
-				...engines,
-			};
-		}
+		Object.assign(this.engines, engines || {});
 	}
 
 	/**
